@@ -7,6 +7,7 @@ You are reviewing a mobile personal finance app UX planning packet.
 
 Start by reading:
 - docs/APP_CONTEXT.md
+- docs/OVERALL_PLAN.md
 - docs/PRODUCT_VISION.md
 - docs/TARGET_USER_AND_JOBS.md
 - docs/CURRENT_UX_PRIORITIES.md
@@ -22,6 +23,7 @@ Then review the relevant files under:
 Your job is to help improve UX first, then inform visual redesign.
 
 Please focus on:
+- where the product currently sits in its roadmap and what this UX phase should shape
 - what each screen is trying to accomplish
 - whether the user goal is clear
 - whether the primary action is obvious

@@ -29,11 +29,12 @@ What this snapshot intentionally excludes:
 
 Recommended use:
 1. Start with [docs/APP_CONTEXT.md](docs/APP_CONTEXT.md).
-2. Read [docs/PRODUCT_VISION.md](docs/PRODUCT_VISION.md), [docs/TARGET_USER_AND_JOBS.md](docs/TARGET_USER_AND_JOBS.md), and [docs/CURRENT_UX_PRIORITIES.md](docs/CURRENT_UX_PRIORITIES.md).
-3. Review [docs/SCREEN_INDEX.md](docs/SCREEN_INDEX.md) and [docs/SCREEN_SUMMARIES.md](docs/SCREEN_SUMMARIES.md).
-4. Read [docs/DESIGN_SYSTEM_SUMMARY.md](docs/DESIGN_SYSTEM_SUMMARY.md).
-5. Use the screenshots in `screenshots/` as the visual baseline.
-6. Use [docs/UX_PLANNING_PROMPT.md](docs/UX_PLANNING_PROMPT.md) as the starter prompt for an external model.
+2. Read [docs/OVERALL_PLAN.md](docs/OVERALL_PLAN.md) to understand where this UX work sits in the broader product roadmap.
+3. Read [docs/PRODUCT_VISION.md](docs/PRODUCT_VISION.md), [docs/TARGET_USER_AND_JOBS.md](docs/TARGET_USER_AND_JOBS.md), and [docs/CURRENT_UX_PRIORITIES.md](docs/CURRENT_UX_PRIORITIES.md).
+4. Review [docs/SCREEN_INDEX.md](docs/SCREEN_INDEX.md) and [docs/SCREEN_SUMMARIES.md](docs/SCREEN_SUMMARIES.md).
+5. Read [docs/DESIGN_SYSTEM_SUMMARY.md](docs/DESIGN_SYSTEM_SUMMARY.md).
+6. Use the screenshots in `screenshots/` as the visual baseline.
+7. Use [docs/UX_PLANNING_PROMPT.md](docs/UX_PLANNING_PROMPT.md) as the starter prompt for an external model.
 
 Safety note:
 - This repo is intended for UX planning only.
