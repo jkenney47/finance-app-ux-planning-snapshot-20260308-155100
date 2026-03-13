@@ -15,7 +15,7 @@ The full private repo has a detailed execution plan. For external UX planning, t
 
 The app is past the earliest MVP-definition phase. The core product loop already exists in working form and has been through multiple reliability passes.
 
-The product is now in a refinement phase where UX clarity and visual direction matter more than adding more raw capability.
+The product is now in a refinement phase where the onboarding engine and the primary planning screens have been aligned to a shared roadmap model. UX clarity and visual direction matter more right now than adding more raw capability.
 
 This matters because the current planning question is not "what features should exist at all?" It is "what should this experience feel like, how should the screens relate to each other, and what should the user understand at each step?"
 
@@ -24,13 +24,13 @@ This matters because the current planning question is not "what features should 
 The current app already includes these core user-facing areas:
 
 - authentication and return-user entry
-- first-run onboarding
-- a home screen centered on a recommended next step
-- a roadmap or journey view showing progress over time
-- insights and supporting financial context
-- accounts, goals, and profile support surfaces
+- a multi-step onboarding flow that previews value before asking for account linking
+- a roadmap reveal that is generated after intake and a required core transactional link
+- a home screen centered on current focus, next action, and key metric
+- a roadmap / journey view and a step-detail view driven by the same planning payload as Home
+- profile, accounts, goals, and insights support surfaces
 
-The product already aims to deliver value before asking the user for maximum setup effort. In particular, connected financial accounts are meant to improve the experience, but they are not supposed to be the only way a user sees value.
+The product still aims to deliver value before asking for maximum setup effort. In the current build, users can preview value and complete intake before linking, but a core transactional account link is now required before the personalized roadmap reveal and dashboard entry.
 
 ## What The Product Is Trying To Achieve
 
@@ -46,18 +46,18 @@ The intended product tone is calm, practical, trustworthy, and premium. It shoul
 
 ## Current Planning Focus
 
-The current phase is a UX-first clarification phase.
+The current phase is a UX-first clarification phase around the new roadmap-first architecture.
 
 The key goal is to make the product flow feel coherent before doing a larger visual redesign and before pushing further into broader live-data expansion.
 
 The main questions in this phase are:
 
-- How should first-run value be introduced?
-- What should the Home screen communicate in the first few seconds?
-- How should Home, Journey, Insights, Accounts, Goals, and Profile relate to each other?
-- When should the product ask for account connection?
-- Where should trust, confidence, limitations, and explanation live?
-- Which surfaces are primary versus secondary?
+- How should preview-first onboarding transition into a required link step without feeling bait-and-switch?
+- What should the Home screen communicate in the first few seconds now that it shares a roadmap payload with Journey and Step Detail?
+- How should Home, Journey, and Step Detail divide responsibility cleanly?
+- Which supporting surfaces still deserve standalone destinations versus getting absorbed into the core roadmap experience?
+- Where should trust, coverage strength, limitations, and explanation live?
+- How visible should linked-data freshness and missing-data context be?
 
 ## What This UX Packet Should Help Decide
 
@@ -69,6 +69,7 @@ This packet is meant to help improve:
 - action hierarchy
 - trust-building moments
 - the order of future redesign work
+- the boundary between primary planning screens and secondary support screens
 
 The goal is to make the experience more understandable and more intentional before moving into high-fidelity redesign implementation.
 
@@ -76,7 +77,7 @@ The goal is to make the experience more understandable and more intentional befo
 
 The expected sequence is:
 
-1. clarify the UX and screen responsibilities
+1. clarify the UX and screen responsibilities around the new roadmap-core architecture
 2. use that clarity to drive visual redesign
 3. implement the approved redesign back in the private product repo
 4. continue later expansion work only after the experience direction is clear

@@ -16,8 +16,8 @@ What this snapshot includes:
 - sanitized product and UX context docs
 
 Screenshot note:
-- `screenshots/onboarding-welcome.png` is a fresh current-state capture.
-- the remaining screenshots are drawn from a curated user-facing UI audit set.
+- `screenshots/onboarding-welcome.png`, `screenshots/home_dashboard.png`, `screenshots/roadmap_journey.png`, and `screenshots/step_detail.png` were refreshed from the current app state on March 13, 2026.
+- `screenshots/accounts.png`, `screenshots/goals.png`, `screenshots/insights.png`, and `screenshots/profile.png` remain curated reference captures from the March 2, 2026 UI audit packet.
 
 What this snapshot intentionally excludes:
 - `.env*` files and secrets

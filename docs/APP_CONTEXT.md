@@ -41,13 +41,13 @@ A non-technical consumer user who wants clear financial direction without jargon
 ## Main User Flows
 
 - Auth: welcome, sign in, sign up, forgot password
-- Onboarding: preview value first, collect a few preferences, optionally connect accounts
-- Dashboard home: see the current recommendation and immediate next actions
-- Journey: understand milestone progress and roadmap sequencing
-- Insights: review trends and tradeoffs
-- Accounts and goals: manage supporting data surfaces
-- Profile: preferences, coverage, and workspace entry points
+- Onboarding: welcome -> demo roadmap -> account creation -> guided intake -> summary -> link explanation -> account link -> roadmap reveal
+- Dashboard home: see the current focus, next action, key metric, and a compact financial snapshot
+- Journey / roadmap: understand stage sequencing, what is current vs upcoming, and why the user is placed there
+- Step detail: inspect the active recommendation, reasoning, limitations, and tradeoffs
+- Profile: preferences, data-health context, and entry points into secondary surfaces
+- Secondary surfaces: insights, accounts, and goals still exist, but they are no longer equal-weight primary navigation destinations
 
 ## Current Design Direction
 
-The current app is moving toward a more polished and premium fintech feel, but the UX is still being actively reviewed. This packet is intended to help refine information hierarchy, flow clarity, screen purpose, and visual direction.
+The current app is moving toward a calmer roadmap-first experience with a clearer distinction between primary planning surfaces and secondary management surfaces. This packet is intended to help refine information hierarchy, flow clarity, screen purpose, and visual direction now that the shared roadmap model is live across the main planning screens.

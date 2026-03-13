@@ -1,38 +1,34 @@
 # Mock Scenarios
 
-These sanitized mock states represent the main UX situations the product should handle well.
+These sanitized mock states represent the main roadmap-coverage situations the product should handle well.
 
-## `default`
+## `none`
 
-- linked accounts: 3
-- transactions: present
-- data quality: mostly healthy, one institution needs reconnect
-- user feeling: “I have enough information to act, but accuracy is slightly reduced”
-
-## `empty`
-
+- linked institutions: 0
 - linked accounts: 0
-- transactions: none
 - data quality: no connected financial data
-- user feeling: “I need help understanding value before I connect anything”
+- user feeling: "I can preview the product, but not get the personalized roadmap yet"
 
-## `linked_no_transactions`
+## `core_transactional`
 
-- linked accounts: 3
-- transactions: none
-- data quality: accounts connected, but trend/insight surfaces have low evidence
-- user feeling: “I connected data but still don’t see enough useful context”
+- linked institutions: 1
+- linked accounts: 1
+- connected categories: checking / savings
+- data quality: enough to understand current cash flow, but broader tradeoffs are still limited
+- user feeling: "I have a believable first plan, but it is still narrow"
 
-## `partial_facts`
+## `core_plus_debt`
 
-- linked accounts: 1 savings account
-- transactions: none
-- data quality: partial information only
-- user feeling: “The app knows something, but not enough to feel fully tailored”
+- linked institutions: 2
+- linked accounts: 2
+- connected categories: checking / savings, credit cards
+- data quality: enough for cash-flow and near-term debt prioritization
+- user feeling: "The app can now explain why one tradeoff beats another"
 
-## `crisis_cash_flow`
+## `full_coverage`
 
-- linked accounts: 3
-- transactions: present
-- data quality: enough data to identify negative cash-flow pressure
-- user feeling: “I need clear prioritization and confidence under stress”
+- linked institutions: 4
+- linked accounts: 5
+- connected categories: checking / savings, credit cards, loans, retirement / investments
+- data quality: the strongest mock path with cash-flow, debt, savings, and longer-term context
+- user feeling: "The roadmap feels meaningfully personalized and more defensible"

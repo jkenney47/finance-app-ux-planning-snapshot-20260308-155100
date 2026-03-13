@@ -16,9 +16,10 @@ This is a high-level summary of the current visual system. It is included instea
 - section headers with eyebrow + title + supporting description
 - rounded surface cards for grouped information
 - primary and secondary button hierarchy
-- segmented controls for screen-state and filter switching
-- metric tiles and hero metrics for key numbers
-- recommendation cards with rationale and tradeoffs
+- coverage chips and stage pills for planning-state clarity
+- metric tiles and compact snapshot cards for key numbers
+- recommendation cards with rationale, limitations, and tradeoffs
+- roadmap stage cards and step-detail explanation sections
 - empty, loading, and error states as designed surfaces
 
 ## Token Intent
@@ -33,6 +34,6 @@ This is a high-level summary of the current visual system. It is included instea
 
 - stronger purpose and hierarchy
 - more memorable first impression
-- better emotional pacing across onboarding and dashboard surfaces
+- better emotional pacing across onboarding, reveal, and recurring planning surfaces
 - clearer distinction between primary and supporting information
 - keep trust and clarity stronger than novelty

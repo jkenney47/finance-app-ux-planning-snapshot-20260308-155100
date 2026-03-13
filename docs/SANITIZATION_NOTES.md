@@ -11,10 +11,9 @@ Excluded on purpose:
 - private Git history and branch structure
 
 Included on purpose:
-- screen-level source snapshots
-- shared visual components
-- theme context
-- product and UX intent summaries
-- baseline screenshot evidence
+- current-state screenshot evidence for the primary planning flow
+- curated screenshot references for secondary surfaces
+- high-level product and UX intent summaries
+- design-system and mock-state context
 
 This snapshot should be treated as a UX planning artifact, not as an operational or deployable repository.

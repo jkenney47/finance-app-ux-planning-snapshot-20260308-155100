@@ -1,41 +1,53 @@
 # Screen Index
 
-## Main User-Facing Screens
+## Primary Planning Screens
 
 Detailed UX summaries live in [SCREEN_SUMMARIES.md](SCREEN_SUMMARIES.md).
 
 Associated screenshots live in `screenshots/`.
 
 - `onboarding-welcome.png`
-  - first-run onboarding welcome state
-  - starts with a low-pressure welcome state
-  - guides users into demo, preferences, and optional account connection
+  - first-run onboarding entry
+  - starts with a preview-first value statement
+  - leads into demo roadmap, account creation, and guided intake before linking
 
 - `home_dashboard.png`
-  - dashboard home
-  - recommendation-first experience with the clearest current action
+  - post-onboarding Home screen
+  - current focus, next action, and key metric
+  - compact snapshot of financial state when linked coverage is strong
 
 - `roadmap_journey.png`
-  - roadmap and milestone view
+  - primary roadmap timeline
+  - current stage, upcoming stages, and why the user is placed here
 
-- `insights.png`
-  - trends and explanation surface
+- `step_detail.png`
+  - recommendation detail and rationale
+  - tradeoffs, reasoning, and data-support context for the active step
+
+## Supporting Screens
+
+- `profile.png`
+  - the current utility hub in primary navigation
+  - preferences plus entry points into secondary surfaces
 
 - `accounts.png`
-  - linked-account management and coverage support
+  - linked-account management and data-health support
 
 - `goals.png`
   - user goals and progress tracking
 
-- `profile.png`
-  - preferences, coverage, and account-management entry points
-
-- `step_detail.png`
-  - recommendation detail and alternative-path comparison
+- `insights.png`
+  - secondary explanation surface
+  - currently hidden from the primary tab bar in the live app
 
 - auth screen summaries are included in [SCREEN_SUMMARIES.md](SCREEN_SUMMARIES.md):
   - auth-adjacent marketing/welcome screen
   - emphasizes product value and sign-in/account-creation actions
+
+- onboarding summary coverage in [SCREEN_SUMMARIES.md](SCREEN_SUMMARIES.md) also includes:
+  - roadmap reveal
+  - required account-linking step
+  - multi-step intake sequence
 
 ## Shared Design Context
 

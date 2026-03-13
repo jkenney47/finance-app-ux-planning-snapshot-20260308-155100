@@ -29,7 +29,7 @@ Please focus on:
 - whether the primary action is obvious
 - where the flow creates friction or confusion
 - what information is missing or overloaded
-- how onboarding, dashboard, roadmap, and supporting surfaces should relate to each other
+- how onboarding, Home, Roadmap, Step Detail, and supporting surfaces should relate to each other
 - what sequence we should use for redesign work
 
 Constraints:
@@ -37,13 +37,15 @@ Constraints:
 - avoid hype-driven investing language
 - avoid generic AI-assistant UX patterns
 - keep guidance clear and low-jargon
-- treat account linking as a trust-sensitive optional upgrade, not the first source of value
+- treat account linking as trust-sensitive and preview-second, but note that the current build requires a core link before the personalized roadmap reveal
+- assume Home, Roadmap, and Step Detail are the current primary planning trio, with Profile as the utility tab and Insights / Accounts / Goals as supporting surfaces unless you argue otherwise
 - assume implementation will happen later in a private repo
 
 Output requested:
 1. high-level UX diagnosis
 2. screen-by-screen UX recommendations
 3. flow-level changes that should happen before visual redesign
-4. a prioritized redesign order
-5. open questions that should be resolved by product/design
+4. primary-vs-secondary surface recommendations
+5. a prioritized redesign order
+6. open questions that should be resolved by product/design
 ```
