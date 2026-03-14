@@ -1,0 +1,158 @@
+name: Policy Refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "15 6 * * *"
+    - cron: "30 6 * * 1"
+
+jobs:
+  refresh-policy-packs:
+    name: Refresh policy packs
+    runs-on: ubuntu-latest
+    env:
+      FUNCTIONS_BASE_URL: ${{ secrets.SUPABASE_FUNCTIONS_BASE_URL }}
+      POLICY_REFRESH_SECRET: ${{ secrets.POLICY_REFRESH_SECRET }}
+      SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      POLICY_REVIEW_PROVIDER_KEY: ${{ vars.POLICY_REVIEW_PROVIDER_KEY }}
+      SCHEDULE_EXPRESSION: ${{ github.event.schedule }}
+      EVENT_NAME: ${{ github.event_name }}
+    steps:
+      - name: Evaluate secret availability
+        id: gate
+        run: |
+          if [ -z "${FUNCTIONS_BASE_URL}" ]; then
+            if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+              echo "Missing required secret: SUPABASE_FUNCTIONS_BASE_URL"
+              exit 1
+            fi
+            echo "has_base_url=false" >> "${GITHUB_OUTPUT}"
+            echo "::warning::Missing secret SUPABASE_FUNCTIONS_BASE_URL. Skipping policy refresh steps."
+          else
+            echo "has_base_url=true" >> "${GITHUB_OUTPUT}"
+          fi
+
+      - name: Refresh rates policy pack
+        if: ${{ steps.gate.outputs.has_base_url == 'true' }}
+        run: |
+          set -euo pipefail
+
+          HEADER_ARGS=("-H" "Content-Type: application/json")
+          if [ -n "${POLICY_REFRESH_SECRET}" ]; then
+            HEADER_ARGS+=("-H" "x-policy-refresh-secret: ${POLICY_REFRESH_SECRET}")
+          fi
+
+          RESPONSE=$(curl -sS -w "\n%{http_code}" -X POST \
+            "${FUNCTIONS_BASE_URL}/refreshRatesPolicy" \
+            "${HEADER_ARGS[@]}" \
+            -d '{"region":"US","jurisdiction":"federal"}')
+
+          BODY=$(printf '%s\n' "${RESPONSE}" | sed '$d')
+          HTTP_CODE=$(printf '%s\n' "${RESPONSE}" | tail -n1)
+          printf '%s\n' "${BODY}"
+
+          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+            echo "refreshRatesPolicy failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi
+
+      - name: Refresh thresholds policy pack
+        if: ${{ steps.gate.outputs.has_base_url == 'true' && (github.event_name == 'workflow_dispatch' || github.event.schedule == '30 6 * * 1') }}
+        run: |
+          set -euo pipefail
+
+          HEADER_ARGS=("-H" "Content-Type: application/json")
+          if [ -n "${POLICY_REFRESH_SECRET}" ]; then
+            HEADER_ARGS+=("-H" "x-policy-refresh-secret: ${POLICY_REFRESH_SECRET}")
+          fi
+
+          RESPONSE=$(curl -sS -w "\n%{http_code}" -X POST \
+            "${FUNCTIONS_BASE_URL}/refreshThresholdsPolicy" \
+            "${HEADER_ARGS[@]}" \
+            -d '{"region":"US","jurisdiction":"federal"}')
+
+          BODY=$(printf '%s\n' "${RESPONSE}" | sed '$d')
+          HTTP_CODE=$(printf '%s\n' "${RESPONSE}" | tail -n1)
+          printf '%s\n' "${BODY}"
+
+          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+            echo "refreshThresholdsPolicy failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi
+
+      - name: Governance auth smoke (unauthorized)
+        if: ${{ steps.gate.outputs.has_base_url == 'true' }}
+        run: |
+          set -euo pipefail
+
+          RESPONSE=$(curl -sS -w "\n%{http_code}" -X POST \
+            "${FUNCTIONS_BASE_URL}/governPolicyPacks" \
+            -H "Content-Type: application/json" \
+            -d '{"action":"auth_probe"}')
+
+          BODY=$(printf '%s\n' "${RESPONSE}" | sed '$d')
+          HTTP_CODE=$(printf '%s\n' "${RESPONSE}" | tail -n1)
+          printf '%s\n' "${BODY}"
+
+          if [ "${HTTP_CODE}" = "200" ]; then
+            echo "Expected unauthorized auth probe to fail, but got HTTP 200"
+            exit 1
+          fi
+
+          if [ "${HTTP_CODE}" != "401" ] && [ "${HTTP_CODE}" != "403" ]; then
+            echo "Expected HTTP 401/403 for unauthorized auth probe, got ${HTTP_CODE}"
+            exit 1
+          fi
+
+      - name: Governance auth smoke (secret)
+        if: ${{ steps.gate.outputs.has_base_url == 'true' && env.POLICY_REFRESH_SECRET != '' }}
+        run: |
+          set -euo pipefail
+
+          RESPONSE=$(curl -sS -w "\n%{http_code}" -X POST \
+            "${FUNCTIONS_BASE_URL}/governPolicyPacks" \
+            -H "Content-Type: application/json" \
+            -H "x-policy-refresh-secret: ${POLICY_REFRESH_SECRET}" \
+            -d '{"action":"auth_probe"}')
+
+          BODY=$(printf '%s\n' "${RESPONSE}" | sed '$d')
+          HTTP_CODE=$(printf '%s\n' "${RESPONSE}" | tail -n1)
+          printf '%s\n' "${BODY}"
+
+          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+            echo "Secret auth probe failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi
+
+      - name: Agent review for policy refresh payloads (dry run)
+        if: ${{ steps.gate.outputs.has_base_url == 'true' && env.SUPABASE_ANON_KEY != '' }}
+        run: |
+          set -euo pipefail
+
+          PROVIDER_KEY="${POLICY_REVIEW_PROVIDER_KEY:-mock_agent_bridge}"
+          REVIEW_INSTRUCTION="Review the latest policy refresh run metadata for obvious inconsistencies and summarize risks."
+          REVIEW_CONTEXT=$(cat <<JSON
+          {
+            "eventName":"${EVENT_NAME}",
+            "scheduleExpression":"${SCHEDULE_EXPRESSION}",
+            "ratesRefreshed":true,
+            "thresholdsRefreshTriggered":${{ github.event_name == 'workflow_dispatch' || github.event.schedule == '30 6 * * 1' }}
+          }
+          JSON
+          )
+
+          RESPONSE=$(curl -sS -w "\n%{http_code}" -X POST \
+            "${FUNCTIONS_BASE_URL}/agentGateway" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
+            -H "apikey: ${SUPABASE_ANON_KEY}" \
+            -d "{\"providerKey\":\"${PROVIDER_KEY}\",\"capability\":\"summarize\",\"instruction\":\"${REVIEW_INSTRUCTION}\",\"context\":${REVIEW_CONTEXT},\"dryRun\":true}")
+
+          BODY=$(printf '%s\n' "${RESPONSE}" | sed '$d')
+          HTTP_CODE=$(printf '%s\n' "${RESPONSE}" | tail -n1)
+          printf '%s\n' "${BODY}"
+
+          if [ "${HTTP_CODE}" -lt 200 ] || [ "${HTTP_CODE}" -ge 300 ]; then
+            echo "agentGateway dry-run review failed with HTTP ${HTTP_CODE}"
+            exit 1
+          fi

@@ -1,0 +1,157 @@
+appId: com.financepal.app
+---
+- launchApp
+- runFlow:
+    when:
+      visible:
+        text: This is the developer menu. It gives you access to useful tools in your development builds.
+    commands:
+      - tapOn:
+          text: Continue
+- runFlow:
+    when:
+      visible:
+        text: "Connected to:"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        text: "http://.*:8081"
+    commands:
+      - tapOn:
+          text: "http://.*:8081"
+- runFlow:
+    when:
+      visible:
+        id: agent-hub-screen-title
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: policy-ops-screen-title
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: ui-lab-screen
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: accounts-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: profile-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: insights-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: journey-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: goals-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        text: "Source code explorer"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        id: onboarding-screen-title
+    commands:
+      - tapOn:
+          id: onboarding-finish-partial
+- assertVisible:
+    id: dashboard-screen-title
+
+- tapOn:
+    id: tab-profile
+- assertVisible:
+    id: profile-screen-title
+- tapOn:
+    id: profile-open-accounts
+- assertVisible:
+    id: accounts-screen-title
+- tapOn:
+    id: accounts-screen-state-toggle-empty
+- assertVisible:
+    text: No accounts yet
+- tapOn:
+    id: accounts-screen-state-toggle-error
+- assertVisible:
+    id: error-notice
+- tapOn:
+    id: tab-profile
+- scrollUntilVisible:
+    element:
+      id: profile-open-goals
+    direction: DOWN
+- tapOn:
+    id: profile-open-goals
+- runFlow:
+    when:
+      visible:
+        id: profile-screen-title
+    commands:
+      - openLink: financepal://goals
+- assertVisible:
+    id: goals-screen-title
+- tapOn:
+    id: goals-screen-state-empty
+- assertVisible:
+    text: Create your first goal
+- tapOn:
+    id: goals-screen-state-error
+- assertVisible:
+    id: error-notice
+
+- tapOn:
+    id: tab-insights
+- assertVisible:
+    id: insights-screen-title
+- tapOn:
+    id: insights-screen-state-empty
+- assertVisible:
+    text: No insights yet
+- tapOn:
+    id: insights-screen-state-error
+- assertVisible:
+    id: error-notice
+
+- tapOn:
+    id: tab-profile
+- assertVisible:
+    id: profile-screen-title
+
+- tapOn:
+    id: tab-home
+- assertVisible:
+    id: dashboard-screen-title

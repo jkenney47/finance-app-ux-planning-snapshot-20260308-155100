@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-02-27T12:35:59.903Z",
+  "phase": "ALL",
+  "mode": "live",
+  "summary": {
+    "supabaseUrl": "https://zderaqrvjljvkwhilesp.supabase.co",
+    "functionsBaseUrl": "https://zderaqrvjljvkwhilesp.supabase.co/functions/v1",
+    "userId": "25787969-a466-4cfe-94ec-813956d6c487",
+    "outputDir": "/Users/JoeyKenney/Documents/Finance-App/artifacts/rollout-phase-a/20260227-073559"
+  },
+  "results": {
+    "a2": {
+      "linkTokenRequestId": "96aa2005-7dbd-4476-b461-f30b245cfe44",
+      "exchangeTokenRequestId": "f2e84071-4851-438c-b95e-4f3903b5658c",
+      "accountsLinked": 12
+    },
+    "a3": {
+      "plaidAccountsRequestId": "aff1f698-1ccb-4904-a4dc-407914c40eee",
+      "accountsReturned": 12
+    }
+  }
+}

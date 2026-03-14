@@ -1,0 +1,40 @@
+name: Actions Failure Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      write_issues:
+        description: "Set to true to create/update workflow-failure incident issues"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+concurrency:
+  group: actions-failure-autopilot
+  cancel-in-progress: false
+
+jobs:
+  autopilot:
+    name: Report failed workflow runs (manual)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run actions failure autopilot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          ACTIONS_AUTOPILOT_WRITE_ISSUES: ${{ github.event.inputs.write_issues == 'true' && '1' || '0' }}
+          ACTIONS_AUTOPILOT_SCAN_WINDOW_HOURS: "24"
+          ACTIONS_AUTOPILOT_MAX_RUNS_PER_SCAN: "100"
+          ACTIONS_AUTOPILOT_GITHUB_MAX_ATTEMPTS: "4"
+        run: node scripts/actions-failure-autopilot.mjs

@@ -1,0 +1,58 @@
+name: PR Autopilot
+
+on:
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Pull request number to process"
+        required: true
+      command_text:
+        description: "Manual follow-up command context"
+        required: false
+        default: "/pr-autopilot"
+
+permissions:
+  contents: read
+  pull-requests: read
+  issues: write
+
+concurrency:
+  group: pr-autopilot-${{ github.event.issue.number || github.event.inputs.pr_number || github.ref_name || 'manual' }}
+  cancel-in-progress: false
+
+jobs:
+  autopilot:
+    name: Handle Explicit PR Follow-Up Requests
+    if: >-
+      github.event_name != 'issue_comment' ||
+      github.event.issue.pull_request != null
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run PR autopilot
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          JULES_API_TOKEN: ${{ secrets.JULES_API_TOKEN }}
+          JULES_API_BASE_URL: "https://jules.googleapis.com/v1alpha"
+          JULES_DAILY_SESSION_LIMIT: "100"
+          JULES_DAILY_SESSION_LOOKBACK_HOURS: "24"
+          PR_AUTOPILOT_ENABLE_PR_LIFECYCLE: "0"
+          PR_AUTOPILOT_AUTO_DELEGATE_DRAFTS: "0"
+          PR_AUTOPILOT_AUTO_RESOLVE_AUTOMATION_THREADS: "0"
+          PR_AUTOPILOT_ENABLE_EVENT_BACKLOG_SCAN: "0"
+          PR_AUTOPILOT_COMMAND_PREFIXES: "/pr-autopilot,/autopilot,/codex-pr,/jules-followup"
+          PR_AUTOPILOT_PR_NUMBER: ${{ github.event.inputs.pr_number }}
+          PR_AUTOPILOT_COMMAND_TEXT: ${{ github.event.inputs.command_text }}
+          PR_AUTOPILOT_AUTOMATION_THREAD_AUTHORS: "chatgpt-codex-connector,copilot-pull-request-reviewer[bot],google-labs-jules[bot],google-labs-jules,github-copilot[bot]"
+          PR_AUTOPILOT_IGNORED_ACTORS: "github-actions,github-actions[bot],google-labs-jules[bot],google-labs-jules,chatgpt-codex-connector,copilot-pull-request-reviewer[bot],github-copilot[bot]"
+          PR_AUTOPILOT_GITHUB_MAX_ATTEMPTS: "4"
+        run: node scripts/pr-autopilot.mjs

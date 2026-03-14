@@ -1,0 +1,17 @@
+# Generated and dependency directories
+node_modules/
+.expo/
+.git/
+
+# Native build dependencies (generated)
+ios/Pods/
+ios/build/
+
+# Build/test outputs
+coverage/
+test-results/
+dist/
+artifacts/
+
+# Generated memory artifacts (autopilot updates these)
+.agents/memory/rules.md

@@ -1,0 +1,68 @@
+name: CI Auto-Heal
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "GitHub Actions run ID to triage"
+        required: true
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: read
+
+jobs:
+  auto-heal:
+    name: Triage Failed Quality Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve failing run metadata
+        id: target-run
+        uses: actions/github-script@v7
+        env:
+          TARGET_RUN_ID: ${{ github.event.inputs.run_id }}
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const runId = Number(process.env.TARGET_RUN_ID);
+            if (!Number.isInteger(runId) || runId <= 0) {
+              core.setFailed(`Invalid run_id: ${process.env.TARGET_RUN_ID || "missing"}`);
+              return;
+            }
+
+            const { data } = await github.rest.actions.getWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: runId,
+            });
+
+            core.setOutput("head_sha", data.head_sha || "");
+            core.setOutput("head_branch", data.head_branch || "");
+
+      - name: Checkout failing branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ steps.target-run.outputs.head_sha || steps.target-run.outputs.head_branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run CI auto-heal
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CI_AUTO_HEAL_RUN_ID: ${{ github.event.inputs.run_id }}
+          CI_AUTO_HEAL_ENABLE_DETERMINISTIC_FIXES: "0"
+          CI_AUTO_HEAL_ENABLE_FAILED_JOB_RERUN: "0"
+          CI_AUTO_HEAL_ENABLE_JULES: "0"
+          CI_AUTO_HEAL_ENABLE_PR_COMMENTS: "0"
+          JULES_DAILY_SESSION_LIMIT: "100"
+          JULES_DAILY_SESSION_LOOKBACK_HOURS: "24"
+        run: node scripts/ci-auto-heal.mjs

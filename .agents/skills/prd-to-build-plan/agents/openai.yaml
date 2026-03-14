@@ -1,0 +1,4 @@
+interface:
+  display_name: "PRD To Build Plan"
+  short_description: "Turn PRDs into MVP-first execution plans."
+  default_prompt: "Use $prd-to-build-plan on the PRD below and generate a concrete MVP-first build plan with milestones, task sequencing, risks, and a next-48-hours action list."

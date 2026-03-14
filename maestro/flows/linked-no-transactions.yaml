@@ -1,0 +1,74 @@
+appId: com.financepal.app
+---
+- launchApp
+- runFlow:
+    when:
+      visible:
+        text: This is the developer menu. It gives you access to useful tools in your development builds.
+    commands:
+      - tapOn:
+          text: Continue
+- runFlow:
+    when:
+      visible:
+        text: "Connected to:"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        text: "http://.*:8081"
+    commands:
+      - tapOn:
+          text: "http://.*:8081"
+- runFlow:
+    when:
+      visible:
+        text: "Source code explorer"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        id: onboarding-screen-title
+    commands:
+      - tapOn:
+          id: onboarding-finish-partial
+- assertVisible:
+    id: dashboard-screen-title
+- assertVisible:
+    id: dashboard-primary-recommendation-connect_accounts
+- assertVisible:
+    id: dashboard-next-step-action
+- tapOn:
+    id: dashboard-next-step-action
+- assertVisible:
+    id: plaid-link-screen-title
+- assertVisible:
+    id: plaid-link-mode-mock
+- tapOn:
+    id: plaid-link-primary
+- assertVisible:
+    id: dashboard-screen-title
+- assertVisible:
+    id: accounts-section
+- assertVisible:
+    id: accounts-list
+- assertVisible:
+    id: accounts-row-chk-001
+- assertVisible:
+    id: dashboard-primary-recommendation-tackle_toxic_debt
+- tapOn:
+    id: tab-roadmap
+- assertVisible:
+    id: journey-screen-title
+- assertVisible:
+    id: journey-current-mode-stabilize
+- assertVisible:
+    id: journey-primary-recommendation-tackle_toxic_debt
+- assertVisible:
+    id: journey-milestone-cash_flow_truth-status-needs_info
+- assertVisible:
+    id: journey-milestone-toxic_debt_purge-status-in_progress

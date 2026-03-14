@@ -1,0 +1,28 @@
+name: Issue Auto-Triage
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  triage:
+    name: Auto-triage issue
+    if: github.event.issue.pull_request == null
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run issue auto-triage
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/issue-autotriage.mjs

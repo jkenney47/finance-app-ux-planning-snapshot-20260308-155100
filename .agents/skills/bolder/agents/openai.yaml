@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Bolder"
+  short_description: "Amplify bland interfaces with confident impact."
+  default_prompt: "Use $bolder to make a target interface more distinctive and memorable while preserving usability and accessibility."

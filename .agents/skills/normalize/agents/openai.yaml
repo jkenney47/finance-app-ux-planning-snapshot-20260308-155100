@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Normalize"
+  short_description: "Align UI with design system patterns."
+  default_prompt: "Use $normalize to align a target feature with the established design system and remove inconsistent one-off patterns."

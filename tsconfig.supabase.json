@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
+    "types": ["node"]
+  },
+  "include": ["types/edge-runtime-modules.d.ts", "supabase/functions/**/*.ts"],
+  "exclude": ["node_modules"]
+}

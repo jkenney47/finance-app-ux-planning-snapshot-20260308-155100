@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Simplify"
+  short_description: "Strip UI to essential, high-value elements."
+  default_prompt: "Use $simplify to remove unnecessary complexity from a target interface while preserving core user outcomes."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Critique"
+  short_description: "Evaluate UX quality and design effectiveness."
+  default_prompt: "Use $critique to deliver a direct, prioritized UX design critique for a target interface area."

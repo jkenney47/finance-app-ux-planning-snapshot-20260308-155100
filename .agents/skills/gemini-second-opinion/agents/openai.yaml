@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gemini Second Opinion"
+  short_description: "Use repo-native Gemini review before implementation."
+  default_prompt: "Use $gemini-second-opinion to get a Gemini second opinion on the active plan before implementation, then route any follow-up critique through the repo's Gemini collaboration scripts."

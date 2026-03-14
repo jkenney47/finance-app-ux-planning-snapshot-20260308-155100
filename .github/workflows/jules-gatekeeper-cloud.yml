@@ -1,0 +1,56 @@
+name: Jules Gatekeeper Cloud
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily schedule (cron is UTC).
+    - cron: "5 13 * * *"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: jules-gatekeeper-cloud
+  cancel-in-progress: true
+
+jobs:
+  gatekeeper:
+    name: Gatekeeper Report
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GATEKEEPER_WINDOW_HOURS: "48"
+      GATEKEEPER_MAX_CANDIDATES: "6"
+      GH_TOKEN: ${{ github.token }}
+      JULES_API_TOKEN: ${{ secrets.JULES_API_TOKEN }}
+      JULES_LOOKBACK_HOURS: "48"
+      JULES_MAX_SESSIONS: "40"
+      JULES_MAX_SESSION_ACTIONS: "15"
+      JULES_POLL_ATTEMPTS: "8"
+      JULES_POLL_INTERVAL_SECONDS: "15"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run cloud gatekeeper report
+        run: node scripts/gatekeeper-report.mjs
+
+      - name: Upload gatekeeper report artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: jules-gatekeeper-artifacts-${{ github.run_id }}
+          path: |
+            artifacts/gatekeeper/
+          if-no-files-found: error

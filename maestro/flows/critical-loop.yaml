@@ -1,0 +1,187 @@
+appId: com.financepal.app
+---
+- launchApp
+- runFlow:
+    when:
+      visible:
+        text: This is the developer menu. It gives you access to useful tools in your development builds.
+    commands:
+      - tapOn:
+          text: Continue
+- runFlow:
+    when:
+      visible:
+        text: "Connected to:"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        text: "http://.*:8081"
+    commands:
+      - tapOn:
+          text: "http://.*:8081"
+- runFlow:
+    when:
+      visible:
+        text: "Open in .*FinancePal.*"
+    commands:
+      - tapOn:
+          text: "Open"
+- runFlow:
+    when:
+      visible:
+        id: agent-hub-screen-title
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: policy-ops-screen-title
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: ui-lab-screen
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: accounts-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: profile-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: insights-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: journey-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: goals-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        text: ".*Connect Hardware Keyboard.*"
+    commands:
+      - tapOn:
+          text: "Continue"
+- runFlow:
+    when:
+      visible:
+        text: "Source code explorer"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        text: "Open in .*FinancePal.*"
+    commands:
+      - tapOn:
+          text: "Open"
+- runFlow:
+    when:
+      visible:
+        id: onboarding-screen-title
+    commands:
+      - tapOn:
+          id: onboarding-finish-partial
+- extendedWaitUntil:
+    visible:
+      id: dashboard-screen-title
+    timeout: 20000
+- assertVisible:
+    id: dashboard-screen-title
+- runFlow:
+    when:
+      visible:
+        id: connection-health-banner
+    commands:
+      - assertVisible:
+          id: connection-health-reconnect
+      - tapOn:
+          id: connection-health-reconnect
+      - assertVisible:
+          id: accounts-screen-title
+      - tapOn:
+          id: accounts-reconnect-button
+- runFlow:
+    when:
+      visible:
+        id: dashboard-primary-recommendation-connect_accounts
+    commands:
+      - scrollUntilVisible:
+          element:
+            id: dashboard-next-step-action
+          direction: DOWN
+      - assertVisible:
+          id: dashboard-next-step-action
+      - tapOn:
+          id: dashboard-next-step-action
+- assertVisible:
+    id: plaid-link-screen-title
+- assertVisible:
+    id: plaid-link-mode-mock
+- tapOn:
+    id: plaid-link-primary
+- extendedWaitUntil:
+    visible:
+      id: dashboard-screen-title
+    timeout: 20000
+- assertVisible:
+    id: dashboard-screen-title
+- assertVisible:
+    id: dashboard-primary-recommendation-.*
+- scrollUntilVisible:
+    element:
+      id: dashboard-next-step-action
+    direction: DOWN
+- assertVisible:
+    id: dashboard-next-step-action
+- openLink: financepal://accounts
+- assertVisible:
+    id: accounts-screen-title
+- scrollUntilVisible:
+    element:
+      id: accounts-row-chk-001
+    direction: DOWN
+- assertVisible:
+    id: accounts-row-chk-001
+- tapOn:
+    id: tab-roadmap
+- assertVisible:
+    id: journey-screen-title
+- assertVisible:
+    id: journey-current-mode-stabilize
+- assertVisible:
+    id: journey-primary-recommendation-tackle_toxic_debt
+- scrollUntilVisible:
+    element:
+      id: journey-milestone-toxic_debt_purge-status-.*
+    direction: DOWN
+- assertVisible:
+    id: journey-milestone-toxic_debt_purge-status-.*

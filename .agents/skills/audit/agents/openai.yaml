@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interface Audit"
+  short_description: "Audit interface quality across UX fundamentals."
+  default_prompt: "Use $audit to run a comprehensive UI/UX quality audit for a target area and return prioritized findings."

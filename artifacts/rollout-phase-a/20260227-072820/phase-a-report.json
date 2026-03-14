@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-02-27T12:28:20.229Z",
+  "phase": "ALL",
+  "mode": "dry_run",
+  "summary": {
+    "supabaseUrl": "https://zderaqrvjljvkwhilesp.supabase.co",
+    "functionsBaseUrl": "https://zderaqrvjljvkwhilesp.supabase.co/functions/v1",
+    "userId": null,
+    "outputDir": "/Users/JoeyKenney/Documents/Finance-App/artifacts/rollout-phase-a/20260227-072820"
+  },
+  "results": {}
+}

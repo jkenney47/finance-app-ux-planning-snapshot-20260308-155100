@@ -1,0 +1,7 @@
+/Users/JoeyKenney/Documents/FinanceApp/app/onboarding/ui/aspect-ratio.tsx(7,11): error @typescript-eslint/no-explicit-any : Unexpected any. Specify a different type.
+/Users/JoeyKenney/Documents/FinanceApp/app/onboarding/ui/calendar.tsx(63,22): error react/prop-types : 'className' is missing in props validation
+/Users/JoeyKenney/Documents/FinanceApp/app/onboarding/ui/calendar.tsx(66,23): error react/prop-types : 'className' is missing in props validation
+/Users/JoeyKenney/Documents/FinanceApp/app/onboarding/ui/checkbox.tsx(5,10): error @typescript-eslint/no-unused-vars : 'Check' is defined but never used.
+/Users/JoeyKenney/Documents/FinanceApp/app/onboarding/ui/checkbox.tsx(26,10): error react/jsx-no-undef : 'CheckIcon' is not defined.
+
+5 problems

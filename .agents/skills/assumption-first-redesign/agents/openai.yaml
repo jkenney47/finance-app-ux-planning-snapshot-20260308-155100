@@ -1,0 +1,4 @@
+interface:
+  display_name: "Assumption-First Redesign"
+  short_description: "Clean-slate redesign plus migration plan."
+  default_prompt: "Use $assumption-first-redesign to convert a new requirement into a clean target architecture and a staged migration plan from the current system."

@@ -1,0 +1,23 @@
+{
+  "generatedAt": "2026-03-06T11:09:24.690Z",
+  "fetchedRemotes": false,
+  "apply": false,
+  "totalRemoteBranches": 269,
+  "protectedBranches": [
+    "main",
+    "develop"
+  ],
+  "openPrDetection": {
+    "status": "ok",
+    "openPrCount": 0
+  },
+  "thresholds": {
+    "humanFreshDays": 14,
+    "automationRetentionDays": 7,
+    "backupRetentionDays": 3
+  },
+  "cleanupCandidates": [],
+  "reviewBranches": [],
+  "deletedBranches": [],
+  "failedDeletes": []
+}

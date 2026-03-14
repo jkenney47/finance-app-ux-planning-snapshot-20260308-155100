@@ -1,0 +1,141 @@
+{
+  "generatedAt": "2026-03-08T12:26:01.977Z",
+  "options": {
+    "days": 14,
+    "rootPath": ".",
+    "eventsPath": ".agents/memory/events.ndjson",
+    "configPath": ".codex/config.toml",
+    "topDomains": 5
+  },
+  "events": {
+    "totalEvents": 83,
+    "failureEvents": 82,
+    "topTags": [
+      {
+        "name": "auto",
+        "count": 82
+      },
+      {
+        "name": "command-failure",
+        "count": 82
+      },
+      {
+        "name": "gh",
+        "count": 37
+      },
+      {
+        "name": "npm",
+        "count": 13
+      },
+      {
+        "name": "rg",
+        "count": 11
+      },
+      {
+        "name": "git",
+        "count": 10
+      },
+      {
+        "name": "bash",
+        "count": 5
+      },
+      {
+        "name": "npx",
+        "count": 2
+      }
+    ],
+    "topTriggers": [
+      {
+        "name": "command-run:continue recommended repo hardening flow",
+        "count": 28
+      },
+      {
+        "name": "command-run:open PR consolidation and merge",
+        "count": 12
+      },
+      {
+        "name": "command-run:Slice 3 drift reduction and DX cleanup hardening",
+        "count": 8
+      },
+      {
+        "name": "command-run:merge remaining hardening PRs and verify local state",
+        "count": 7
+      },
+      {
+        "name": "command-run:Slice 3 repo hardening execution packet",
+        "count": 4
+      },
+      {
+        "name": "command-run:next-step open-pr triage",
+        "count": 3
+      },
+      {
+        "name": "command-run:Determine whether the unused Supabase project can be deleted",
+        "count": 3
+      },
+      {
+        "name": "command-run:Assess whether repo can be made temporarily public without exposing secrets",
+        "count": 2
+      }
+    ],
+    "coordinationIncidents": 14,
+    "ciIncidents": 27,
+    "timeoutIncidents": 0,
+    "backendAuthSignals": 11
+  },
+  "git": {
+    "commits": 210,
+    "files": 1320,
+    "domains": [
+      {
+        "name": "other",
+        "count": 340,
+        "share": 0.258
+      },
+      {
+        "name": "frontend",
+        "count": 314,
+        "share": 0.238
+      },
+      {
+        "name": "docs-policy",
+        "count": 253,
+        "share": 0.192
+      },
+      {
+        "name": "automation",
+        "count": 186,
+        "share": 0.141
+      },
+      {
+        "name": "tests",
+        "count": 122,
+        "share": 0.092
+      },
+      {
+        "name": "backend",
+        "count": 105,
+        "share": 0.08
+      }
+    ],
+    "error": ""
+  },
+  "existingProfiles": [
+    "ci_triage_reviewer",
+    "implementer",
+    "planner",
+    "reviewer"
+  ],
+  "recommendations": {
+    "maxParallelThreads": 1,
+    "maxDelegationDepth": 1,
+    "maxRuntimeMinutes": 30,
+    "rationale": {
+      "activeDomains": 3,
+      "coordinationIncidents": 14,
+      "ciIncidents": 27,
+      "timeoutIncidents": 0
+    }
+  },
+  "newAgentCandidates": []
+}

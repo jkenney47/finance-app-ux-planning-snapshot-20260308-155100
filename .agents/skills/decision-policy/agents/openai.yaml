@@ -1,0 +1,4 @@
+interface:
+  display_name: "Decision Policy"
+  short_description: "Autonomous decision rules and escalation gates."
+  default_prompt: "Use $decision-policy to decide what can be auto-handled vs what needs user approval, then produce a decision log."

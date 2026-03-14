@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Adapt"
+  short_description: "Adapt UI across devices and contexts."
+  default_prompt: "Use $adapt to redesign a target interface for a new device, platform, or usage context while preserving core outcomes."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "UX Delight"
+  short_description: "Add joyful, memorable product moments."
+  default_prompt: "Use $delight to add context-appropriate moments of joy and personality to a target interface without hurting usability."

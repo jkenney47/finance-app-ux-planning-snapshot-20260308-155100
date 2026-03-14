@@ -1,0 +1,4 @@
+interface:
+  display_name: "UX Onboard"
+  short_description: "Design onboarding and first-use success flows."
+  default_prompt: "Use $onboard to design or improve onboarding flows that get users to value quickly and confidently."

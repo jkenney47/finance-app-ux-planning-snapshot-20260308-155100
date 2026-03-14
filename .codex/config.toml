@@ -1,0 +1,52 @@
+[features]
+multi_agent = true
+
+[agents.planner]
+model = "gpt-5.4"
+description = "Break requests into a decision-complete plan, risk-tier classification, and execution packet."
+
+[agents.implementer]
+model = "gpt-5.4"
+description = "Implement scoped code/doc changes with minimal diffs and concrete verification evidence."
+
+[agents.reviewer]
+model = "gpt-5.4"
+description = "Review merged output for regressions, missing tests, and policy/rule violations."
+
+[agents.ci_triage_reviewer]
+model = "gpt-5.4"
+description = "Diagnose failed CI checks with a narrow, read-only reviewer workflow."
+
+[profiles.planner]
+prompt_file = ".codex/agents/planner.md"
+approval_policy = "on-request"
+sandbox_mode = "read-only"
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+
+[profiles.implementer]
+prompt_file = ".codex/agents/implementer.md"
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+model_reasoning_summary = "none"
+hide_agent_reasoning = true
+
+[profiles.reviewer]
+prompt_file = ".codex/agents/reviewer.md"
+approval_policy = "on-request"
+sandbox_mode = "read-only"
+model = "gpt-5.4"
+model_reasoning_effort = "xhigh"
+model_reasoning_summary = "none"
+hide_agent_reasoning = true
+
+[profiles.ci_triage_reviewer]
+prompt_file = ".codex/agents/ci-triage-reviewer.md"
+approval_policy = "on-request"
+sandbox_mode = "read-only"
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+model_reasoning_summary = "none"
+hide_agent_reasoning = true

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Ops Optimizer"
+  short_description: "Recommends agent tuning and new profile opportunities."
+  default_prompt: "Use $agent-ops-optimizer to generate a data-backed report on multi-agent usage, recommended thread/depth/runtime tuning, and whether new specialized agent profiles should be added."

@@ -1,0 +1,38 @@
+{
+  "mcp": {
+    "servers": {
+      "figma": {
+        "command": "npx",
+        "args": ["mcp-remote", "http://127.0.0.1:3845/sse"]
+      },
+      "context7": {
+        "command": "node",
+        "args": ["scripts/context7-mcp.cjs"]
+      },
+      "github": {
+        "command": "npx",
+        "args": ["-y", "@modelcontextprotocol/server-github"],
+        "env": {
+          "GITHUB_PAT": "<YOUR_GITHUB_PAT>",
+          "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_GITHUB_PAT>"
+        }
+      },
+      "supabase": {
+        "command": "npx",
+        "args": [
+          "mcp-remote",
+          "https://mcp.supabase.com/mcp?read_only=true&project_ref=<YOUR_PROJECT_REF>"
+        ]
+      },
+      "sentry": {
+        "command": "npx",
+        "args": ["-y", "@sentry/mcp-server"],
+        "env": {
+          "SENTRY_ACCESS_TOKEN": "<YOUR_SENTRY_TOKEN>",
+          "EMBEDDED_AGENT_PROVIDER": "openai",
+          "OPENAI_API_KEY": "<YOUR_OPENAI_API_KEY>"
+        }
+      }
+    }
+  }
+}

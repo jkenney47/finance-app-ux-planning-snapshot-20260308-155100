@@ -1,0 +1,4 @@
+interface:
+  display_name: "Final Polish"
+  short_description: "Run final detail pass before shipping."
+  default_prompt: "Use $polish to run a meticulous final UI quality pass for a target area before release."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Napkin Memory System"
+  short_description: "Structured repo memory with ranking and promotion."
+  default_prompt: "Use $napkin in autopilot mode: start task memory context, run commands through codex-autopilot for failure capture, and keep rules promoted/indexed."

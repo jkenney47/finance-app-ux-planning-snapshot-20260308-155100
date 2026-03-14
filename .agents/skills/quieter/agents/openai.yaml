@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Quieter"
+  short_description: "Refine aggressive UIs into calm sophistication."
+  default_prompt: "Use $quieter to reduce visual intensity in a target interface while keeping clarity, usability, and character."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Interface Hardening"
+  short_description: "Strengthen UI resilience for real-world failures."
+  default_prompt: "Use $harden to identify and improve interface resilience for edge cases, i18n, errors, and production conditions."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Extract"
+  short_description: "Extract reusable UI patterns and tokens."
+  default_prompt: "Use $extract to identify reusable UI patterns in a target area and consolidate them into shared components and tokens."

@@ -1,0 +1,1299 @@
+{
+  "generatedAt": "2026-03-11T22:55:32.076Z",
+  "options": {
+    "fixtures": "tests/skills/fixtures/invocation-regression.ndjson",
+    "topK": 3,
+    "write": "docs/reports/skills-invocation-latest.md",
+    "json": "docs/reports/skills-invocation-latest.json",
+    "skillsRoot": ".agents/skills"
+  },
+  "summary": {
+    "fixtures": 27,
+    "skills": 26,
+    "topK": 3,
+    "top1HitRate": 1,
+    "recallAtK": 1,
+    "avoidViolationRate": 0.5555555555555556
+  },
+  "lint": {
+    "issues": [
+      {
+        "severity": "warning",
+        "skill": "adapt",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "agent-ops-optimizer",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "assumption-first-redesign",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "clarify",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "critique",
+        "issue": "Description length 425 exceeds 420 characters; tighten trigger density."
+      },
+      {
+        "severity": "warning",
+        "skill": "decision-policy",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "extract",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "error",
+        "skill": "frontend-design",
+        "issue": "Description missing \"Use when\" segment."
+      },
+      {
+        "severity": "warning",
+        "skill": "frontend-design",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "harden",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "error",
+        "skill": "napkin",
+        "issue": "Description missing \"Use when\" segment."
+      },
+      {
+        "severity": "warning",
+        "skill": "napkin",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "nontechnical-intake-to-plan",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "normalize",
+        "issue": "Description length 426 exceeds 420 characters; tighten trigger density."
+      },
+      {
+        "severity": "warning",
+        "skill": "onboard",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "optimize",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "phase-planning-red-team",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "warning",
+        "skill": "polish",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "error",
+        "skill": "prd-to-build-plan",
+        "issue": "Description missing \"Use when\" segment."
+      },
+      {
+        "severity": "warning",
+        "skill": "prd-to-build-plan",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      },
+      {
+        "severity": "error",
+        "skill": "teach-impeccable",
+        "issue": "Description missing \"Use when\" segment."
+      },
+      {
+        "severity": "warning",
+        "skill": "teach-impeccable",
+        "issue": "Description missing both \"Avoid when\" and \"Prefer ... when ...\" boundary cues."
+      }
+    ],
+    "overlapRows": []
+  },
+  "confusionRows": [],
+  "missedSkillRows": [],
+  "fixtures": [
+    {
+      "id": "audit-01",
+      "expected": ["audit"],
+      "avoid": ["polish", "normalize", "critique"],
+      "top": [
+        {
+          "skill": "audit",
+          "score": 0.8033099894499321,
+          "details": {
+            "coreScore": 0.25928148942086576,
+            "useScore": 0.12126781251816648,
+            "avoidScore": 0,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "optimize",
+          "score": 0.2652121455024643,
+          "details": {
+            "coreScore": 0.06482037235521644,
+            "useScore": 0.1252448582170299,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "extract",
+          "score": 0.16625502117690483,
+          "details": {
+            "coreScore": 0.05423261445466404,
+            "useScore": 0.07001400420140048,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["audit", "optimize", "extract"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Full quality audit request should map to audit."
+    },
+    {
+      "id": "critique-01",
+      "expected": ["critique"],
+      "avoid": ["audit", "polish"],
+      "top": [
+        {
+          "skill": "critique",
+          "score": 1.0694828013732152,
+          "details": {
+            "coreScore": 0.44095855184409843,
+            "useScore": 0.17407765595569785,
+            "avoidScore": 0,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "audit",
+          "score": 0.19262172881897113,
+          "details": {
+            "coreScore": 0.07715167498104596,
+            "useScore": 0.07216878364870323,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "polish",
+          "score": 0.17690759253434063,
+          "details": {
+            "coreScore": 0.06804138174397717,
+            "useScore": 0.06804138174397717,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["critique", "audit", "polish"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["audit", "polish"],
+      "notes": "Direction critique without implementation should map to critique."
+    },
+    {
+      "id": "polish-01",
+      "expected": ["polish"],
+      "avoid": ["audit", "assumption-first-redesign"],
+      "top": [
+        {
+          "skill": "polish",
+          "score": 1.0681251309512179,
+          "details": {
+            "coreScore": 0.42600643361512924,
+            "useScore": 0.18257418583505539,
+            "avoidScore": 0,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "normalize",
+          "score": 0.28077152941743844,
+          "details": {
+            "coreScore": 0.16151457061744964,
+            "useScore": 0.07453559924999299,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "phase-planning-red-team",
+          "score": 0.22213672050459182,
+          "details": {
+            "coreScore": 0.11547005383792514,
+            "useScore": 0.06666666666666667,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["polish", "normalize", "phase-planning-red-team"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Late-stage refinement should map to polish."
+    },
+    {
+      "id": "normalize-01",
+      "expected": ["normalize"],
+      "avoid": ["bolder", "quieter"],
+      "top": [
+        {
+          "skill": "normalize",
+          "score": 1.3603571351273187,
+          "details": {
+            "coreScore": 0.34698895917974415,
+            "useScore": 0.48038446141526137,
+            "avoidScore": 0.17541160386140586,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "extract",
+          "score": 1.016684607442835,
+          "details": {
+            "coreScore": 0.24806946917841693,
+            "useScore": 0.48038446141526137,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "assumption-first-redesign",
+          "score": 0.25071031653665476,
+          "details": {
+            "coreScore": 0.16012815380508713,
+            "useScore": 0.05661385170722978,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["normalize", "extract", "assumption-first-redesign"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Alignment to existing system should map to normalize."
+    },
+    {
+      "id": "bolder-01",
+      "expected": ["bolder"],
+      "avoid": ["quieter", "simplify"],
+      "top": [
+        {
+          "skill": "bolder",
+          "score": 0.6784178612124248,
+          "details": {
+            "coreScore": 0.1432229748078866,
+            "useScore": 0.3344968040028363,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "delight",
+          "score": 0.23097592999325028,
+          "details": {
+            "coreScore": 0.2864459496157732,
+            "useScore": 0,
+            "avoidScore": 0.09245003270420485,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "quieter",
+          "score": 0.18731900561239095,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.15384615384615385,
+            "avoidScore": 0.09805806756909202,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["bolder", "delight", "quieter"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["quieter"],
+      "notes": "Increase visual energy without changing core flow."
+    },
+    {
+      "id": "quieter-01",
+      "expected": ["quieter"],
+      "avoid": ["bolder", "colorize"],
+      "top": [
+        {
+          "skill": "quieter",
+          "score": 0.7927262476064036,
+          "details": {
+            "coreScore": 0.23076923076923078,
+            "useScore": 0.46153846153846156,
+            "avoidScore": 0.29417420270727607,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "animate",
+          "score": 0.31378581622109447,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.19611613513818404,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "colorize",
+          "score": 0.2675974432022691,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.16724840200141816,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["quieter", "animate", "colorize"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["colorize"],
+      "notes": "Reduce intensity while preserving clarity."
+    },
+    {
+      "id": "simplify-01",
+      "expected": ["simplify"],
+      "avoid": ["bolder", "delight"],
+      "top": [
+        {
+          "skill": "simplify",
+          "score": 0.7214726642935251,
+          "details": {
+            "coreScore": 0.29814239699997197,
+            "useScore": 0.08006407690254357,
+            "avoidScore": 0.09128709291752768,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "critique",
+          "score": 0.20225620359942947,
+          "details": {
+            "coreScore": 0.0629940788348712,
+            "useScore": 0.08703882797784893,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "harden",
+          "score": 0.12810252304406972,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.08006407690254357,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["simplify", "critique", "harden"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Complexity reduction should map to simplify."
+    },
+    {
+      "id": "colorize-01",
+      "expected": ["colorize"],
+      "avoid": ["quieter", "simplify"],
+      "top": [
+        {
+          "skill": "colorize",
+          "score": 0.8102277140431162,
+          "details": {
+            "coreScore": 0.4472135954999579,
+            "useScore": 0.26111648393354675,
+            "avoidScore": 0.09128709291752768,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "optimize",
+          "score": 0.19640863378103474,
+          "details": {
+            "coreScore": 0.07715167498104596,
+            "useScore": 0.07453559924999299,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "critique",
+          "score": 0.1889822365046136,
+          "details": {
+            "coreScore": 0.1889822365046136,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["colorize", "optimize", "critique"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Color intent task should map to colorize."
+    },
+    {
+      "id": "clarify-01",
+      "expected": ["clarify"],
+      "avoid": ["critique", "audit"],
+      "top": [
+        {
+          "skill": "clarify",
+          "score": 0.7415677177852149,
+          "details": {
+            "coreScore": 0.48536267169707553,
+            "useScore": 0.16012815380508713,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "onboard",
+          "score": 0.2713254978519563,
+          "details": {
+            "coreScore": 0.1432229748078866,
+            "useScore": 0.08006407690254357,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "nontechnical-intake-to-plan",
+          "score": 0.13379872160113454,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.08362420100070908,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["clarify", "onboard", "nontechnical-intake-to-plan"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Copy rewrite should map to clarify."
+    },
+    {
+      "id": "delight-01",
+      "expected": ["delight"],
+      "avoid": ["simplify", "optimize"],
+      "top": [
+        {
+          "skill": "delight",
+          "score": 1.0247360869734334,
+          "details": {
+            "coreScore": 0.2864459496157732,
+            "useScore": 0.2773500981126145,
+            "avoidScore": 0.09245003270420485,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "colorize",
+          "score": 0.2675974432022691,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.16724840200141816,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "animate",
+          "score": 0.17360695148027913,
+          "details": {
+            "coreScore": 0.06933752452815364,
+            "useScore": 0.09805806756909202,
+            "avoidScore": 0.08770580193070293,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["delight", "colorize", "animate"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Positive personality lift should map to delight."
+    },
+    {
+      "id": "adapt-01",
+      "expected": ["adapt"],
+      "avoid": ["normalize", "onboard"],
+      "top": [
+        {
+          "skill": "adapt",
+          "score": 0.994500302538392,
+          "details": {
+            "coreScore": 0.5163977794943222,
+            "useScore": 0.08006407690254357,
+            "avoidScore": 0,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "extract",
+          "score": 0.1978830557701236,
+          "details": {
+            "coreScore": 0.06454972243679027,
+            "useScore": 0.08333333333333333,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "normalize",
+          "score": 0.19352625987621794,
+          "details": {
+            "coreScore": 0.0601929265428846,
+            "useScore": 0.08333333333333333,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["adapt", "extract", "normalize"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["normalize"],
+      "notes": "Cross-context adaptation should map to adapt."
+    },
+    {
+      "id": "animate-01",
+      "expected": ["animate"],
+      "avoid": ["optimize", "harden"],
+      "top": [
+        {
+          "skill": "animate",
+          "score": 0.6326702948640901,
+          "details": {
+            "coreScore": 0.36084391824351614,
+            "useScore": 0.20412414523193154,
+            "avoidScore": 0.09128709291752768,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "colorize",
+          "score": 0.1392621247645583,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.08703882797784893,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "delight",
+          "score": 0.07453559924999299,
+          "details": {
+            "coreScore": 0.07453559924999299,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["animate", "colorize", "delight"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Motion quality work should map to animate."
+    },
+    {
+      "id": "onboard-01",
+      "expected": ["onboard"],
+      "avoid": ["simplify", "clarify"],
+      "top": [
+        {
+          "skill": "onboard",
+          "score": 0.8679443633474659,
+          "details": {
+            "coreScore": 0.6210590034081188,
+            "useScore": 0.1543033499620919,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "clarify",
+          "score": 0.2672612419124244,
+          "details": {
+            "coreScore": 0.2672612419124244,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "animate",
+          "score": 0.21800109968179698,
+          "details": {
+            "coreScore": 0.0668153104781061,
+            "useScore": 0.0944911182523068,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["onboard", "clarify", "animate"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["clarify"],
+      "notes": "Activation-focused onboarding should map to onboard."
+    },
+    {
+      "id": "optimize-01",
+      "expected": ["optimize"],
+      "avoid": ["animate", "polish"],
+      "top": [
+        {
+          "skill": "optimize",
+          "score": 1.2063448007406263,
+          "details": {
+            "coreScore": 0.5188745216627708,
+            "useScore": 0.4296689244236597,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "bolder",
+          "score": 0.13379872160113454,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.08362420100070908,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "quieter",
+          "score": 0.12307692307692308,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.07692307692307693,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["optimize", "bolder", "quieter"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Performance-first request should map to optimize."
+    },
+    {
+      "id": "harden-01",
+      "expected": ["harden"],
+      "avoid": ["optimize", "animate"],
+      "top": [
+        {
+          "skill": "harden",
+          "score": 0.9443051313627293,
+          "details": {
+            "coreScore": 0.36514837167011077,
+            "useScore": 0.1432229748078866,
+            "avoidScore": 0,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "audit",
+          "score": 0.2412926677673353,
+          "details": {
+            "coreScore": 0.13801311186847084,
+            "useScore": 0.06454972243679027,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "clarify",
+          "score": 0.18380668123677907,
+          "details": {
+            "coreScore": 0.06454972243679027,
+            "useScore": 0.07453559924999299,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["harden", "audit", "clarify"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Resilience work should map to harden."
+    },
+    {
+      "id": "extract-01",
+      "expected": ["extract"],
+      "avoid": ["normalize", "polish"],
+      "top": [
+        {
+          "skill": "extract",
+          "score": 1.2889080505516557,
+          "details": {
+            "coreScore": 0.46188021535170054,
+            "useScore": 0.29814239699997197,
+            "avoidScore": 0,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "normalize",
+          "score": 0.5895526109617413,
+          "details": {
+            "coreScore": 0.16151457061744964,
+            "useScore": 0.29814239699997197,
+            "avoidScore": 0.08164965809277261,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "assumption-first-redesign",
+          "score": 0.23339860277114277,
+          "details": {
+            "coreScore": 0.14907119849998599,
+            "useScore": 0.05270462766947299,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["extract", "normalize", "assumption-first-redesign"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["normalize"],
+      "notes": "Pattern extraction should map to extract."
+    },
+    {
+      "id": "frontend-design-01",
+      "expected": ["frontend-design"],
+      "avoid": ["critique", "audit"],
+      "top": [
+        {
+          "skill": "frontend-design",
+          "score": 0.6123724356957946,
+          "details": {
+            "coreScore": 0.6123724356957946,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "normalize",
+          "score": 0.28306871119011906,
+          "details": {
+            "coreScore": 0.05212860351426869,
+            "useScore": 0.14433756729740646,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "gemini-second-opinion",
+          "score": 0.24775891892490168,
+          "details": {
+            "coreScore": 0.12126781251816648,
+            "useScore": 0.07905694150420949,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["frontend-design", "normalize", "gemini-second-opinion"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Repo-specific UI guardrail usage should map to frontend-design."
+    },
+    {
+      "id": "nontechnical-plan-01",
+      "expected": ["nontechnical-intake-to-plan"],
+      "avoid": ["prd-to-build-plan", "phase-planning-red-team"],
+      "top": [
+        {
+          "skill": "nontechnical-intake-to-plan",
+          "score": 0.49502824738839646,
+          "details": {
+            "coreScore": 0.17928429140015903,
+            "useScore": 0.13483997249264842,
+            "avoidScore": 0,
+            "nameBoost": 0.1
+          }
+        },
+        {
+          "skill": "phase-planning-red-team",
+          "score": 0.2771281292110203,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.1732050807568877,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "onboard",
+          "score": 0.2642941387166915,
+          "details": {
+            "coreScore": 0.05773502691896257,
+            "useScore": 0.12909944487358055,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": [
+        "nontechnical-intake-to-plan",
+        "phase-planning-red-team",
+        "onboard"
+      ],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["phase-planning-red-team"],
+      "notes": "Plain-language outcome-to-plan should map to nontechnical intake."
+    },
+    {
+      "id": "prd-plan-01",
+      "expected": ["prd-to-build-plan"],
+      "avoid": ["nontechnical-intake-to-plan", "phase-planning-red-team"],
+      "top": [
+        {
+          "skill": "prd-to-build-plan",
+          "score": 1.2063488385776753,
+          "details": {
+            "coreScore": 0.8563488385776753,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "nontechnical-intake-to-plan",
+          "score": 0.2917468892076141,
+          "details": {
+            "coreScore": 0.24174688920761409,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0.05
+          }
+        },
+        {
+          "skill": "phase-planning-red-team",
+          "score": 0.2593998035584921,
+          "details": {
+            "coreScore": 0.13483997249264842,
+            "useScore": 0.0778498944161523,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": [
+        "prd-to-build-plan",
+        "nontechnical-intake-to-plan",
+        "phase-planning-red-team"
+      ],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["nontechnical-intake-to-plan", "phase-planning-red-team"],
+      "notes": "PRD conversion should map to prd-to-build-plan."
+    },
+    {
+      "id": "phase-red-team-01",
+      "expected": ["phase-planning-red-team"],
+      "avoid": ["prd-to-build-plan", "nontechnical-intake-to-plan"],
+      "top": [
+        {
+          "skill": "phase-planning-red-team",
+          "score": 1.0329787357045674,
+          "details": {
+            "coreScore": 0.31008683647302115,
+            "useScore": 0.35805743701971643,
+            "avoidScore": 0,
+            "nameBoost": 0.15000000000000002
+          }
+        },
+        {
+          "skill": "gemini-second-opinion",
+          "score": 0.434421958235617,
+          "details": {
+            "coreScore": 0.20180183819889375,
+            "useScore": 0.17541160386140586,
+            "avoidScore": 0.08006407690254357,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "nontechnical-intake-to-plan",
+          "score": 0.27237479499833034,
+          "details": {
+            "coreScore": 0.22237479499833035,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0.05
+          }
+        }
+      ],
+      "topNames": [
+        "phase-planning-red-team",
+        "gemini-second-opinion",
+        "nontechnical-intake-to-plan"
+      ],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["nontechnical-intake-to-plan"],
+      "notes": "Adversarial planning interview should map to phase-planning-red-team."
+    },
+    {
+      "id": "assumption-redesign-01",
+      "expected": ["assumption-first-redesign"],
+      "avoid": ["normalize", "polish"],
+      "top": [
+        {
+          "skill": "assumption-first-redesign",
+          "score": 0.5909025472442855,
+          "details": {
+            "coreScore": 0.40032038451271784,
+            "useScore": 0.05661385170722978,
+            "avoidScore": 0,
+            "nameBoost": 0.1
+          }
+        },
+        {
+          "skill": "normalize",
+          "score": 0.13851854712047423,
+          "details": {
+            "coreScore": 0.11566298639324804,
+            "useScore": 0.08006407690254357,
+            "avoidScore": 0.17541160386140586,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "nontechnical-intake-to-plan",
+          "score": 0.13379872160113454,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.08362420100070908,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": [
+        "assumption-first-redesign",
+        "normalize",
+        "nontechnical-intake-to-plan"
+      ],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["normalize"],
+      "notes": "Constraint-from-day-one redesign should map to assumption-first-redesign."
+    },
+    {
+      "id": "decision-policy-01",
+      "expected": ["decision-policy"],
+      "avoid": ["nontechnical-intake-to-plan"],
+      "top": [
+        {
+          "skill": "decision-policy",
+          "score": 1.3244681146597546,
+          "details": {
+            "coreScore": 0.38177085778546666,
+            "useScore": 0.27668578554642986,
+            "avoidScore": 0,
+            "nameBoost": 0.5
+          }
+        },
+        {
+          "skill": "agent-ops-optimizer",
+          "score": 0.12235505806429961,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.07647191129018725,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "nontechnical-intake-to-plan",
+          "score": 0.11067431421857195,
+          "details": {
+            "coreScore": 0,
+            "useScore": 0.06917144638660747,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": [
+        "decision-policy",
+        "agent-ops-optimizer",
+        "nontechnical-intake-to-plan"
+      ],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["nontechnical-intake-to-plan"],
+      "notes": "Escalation boundary logic should map to decision-policy."
+    },
+    {
+      "id": "teach-impeccable-01",
+      "expected": ["teach-impeccable"],
+      "avoid": ["frontend-design", "napkin"],
+      "top": [
+        {
+          "skill": "teach-impeccable",
+          "score": 0.4444444444444444,
+          "details": {
+            "coreScore": 0.4444444444444444,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "frontend-design",
+          "score": 0.2267766952966369,
+          "details": {
+            "coreScore": 0.1767766952966369,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0.05
+          }
+        },
+        {
+          "skill": "normalize",
+          "score": 0.1989469306685859,
+          "details": {
+            "coreScore": 0.1203858530857692,
+            "useScore": 0.08333333333333333,
+            "avoidScore": 0.09128709291752768,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["teach-impeccable", "frontend-design", "normalize"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["frontend-design"],
+      "notes": "One-time design context bootstrap should map to teach-impeccable."
+    },
+    {
+      "id": "teach-impeccable-02",
+      "expected": ["teach-impeccable"],
+      "avoid": ["frontend-design", "napkin"],
+      "top": [
+        {
+          "skill": "teach-impeccable",
+          "score": 0.47336463120312877,
+          "details": {
+            "coreScore": 0.47336463120312877,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "extract",
+          "score": 0.3565591117977289,
+          "details": {
+            "coreScore": 0.15,
+            "useScore": 0.12909944487358055,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "normalize",
+          "score": 0.29980959262176027,
+          "details": {
+            "coreScore": 0.09325048082403138,
+            "useScore": 0.12909944487358055,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["teach-impeccable", "extract", "normalize"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Persistent design-memory initialization should map to teach-impeccable, not implementation guardrails."
+    },
+    {
+      "id": "frontend-design-02",
+      "expected": ["frontend-design"],
+      "avoid": ["teach-impeccable", "napkin"],
+      "top": [
+        {
+          "skill": "frontend-design",
+          "score": 0.36950482521134687,
+          "details": {
+            "coreScore": 0.3195048252113469,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0.05
+          }
+        },
+        {
+          "skill": "gemini-second-opinion",
+          "score": 0.33473939888902327,
+          "details": {
+            "coreScore": 0.10846522890932808,
+            "useScore": 0.1414213562373095,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "audit",
+          "score": 0.29840829913342254,
+          "details": {
+            "coreScore": 0.11952286093343936,
+            "useScore": 0.11180339887498948,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["frontend-design", "gemini-second-opinion", "audit"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Implementation-time design direction should map to frontend-design, not one-time memory bootstrap."
+    },
+    {
+      "id": "napkin-01",
+      "expected": ["napkin"],
+      "avoid": ["decision-policy"],
+      "top": [
+        {
+          "skill": "napkin",
+          "score": 0.4146442144313646,
+          "details": {
+            "coreScore": 0.4146442144313646,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "gemini-second-opinion",
+          "score": 0.25588431116546606,
+          "details": {
+            "coreScore": 0.1252448582170299,
+            "useScore": 0.08164965809277261,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "frontend-design",
+          "score": 0.15811388300841897,
+          "details": {
+            "coreScore": 0.15811388300841897,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": ["napkin", "gemini-second-opinion", "frontend-design"],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": [],
+      "notes": "Memory discipline work should map to napkin."
+    },
+    {
+      "id": "gemini-second-opinion-01",
+      "expected": ["gemini-second-opinion"],
+      "avoid": [
+        "nontechnical-intake-to-plan",
+        "prd-to-build-plan",
+        "phase-planning-red-team"
+      ],
+      "top": [
+        {
+          "skill": "gemini-second-opinion",
+          "score": 1.522508681048636,
+          "details": {
+            "coreScore": 0.4537426064865151,
+            "useScore": 0.50709255283711,
+            "avoidScore": 0.1543033499620919,
+            "nameBoost": 0.35
+          }
+        },
+        {
+          "skill": "phase-planning-red-team",
+          "score": 0.28058240945627305,
+          "details": {
+            "coreScore": 0.05976143046671968,
+            "useScore": 0.13801311186847084,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        },
+        {
+          "skill": "polish",
+          "score": 0.1259881576697424,
+          "details": {
+            "coreScore": 0.1259881576697424,
+            "useScore": 0,
+            "avoidScore": 0,
+            "nameBoost": 0
+          }
+        }
+      ],
+      "topNames": [
+        "gemini-second-opinion",
+        "phase-planning-red-team",
+        "polish"
+      ],
+      "top1Hit": true,
+      "recallAtK": 1,
+      "avoidHits": ["phase-planning-red-team"],
+      "notes": "Explicit Gemini plan review before coding should map to the Gemini second-opinion skill."
+    }
+  ]
+}

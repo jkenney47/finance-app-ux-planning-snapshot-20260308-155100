@@ -1,0 +1,4 @@
+interface:
+  display_name: "Phase Planning Red Team"
+  short_description: "Interrogate phase plans with dependency-first red-team rigor."
+  default_prompt: "Use $phase-planning-red-team to run an adversarial, dependency-first interview for our next development phase, resolve decisions one-by-one, and produce an execution-ready plan with explicit risks, validation gates, and rollback paths."

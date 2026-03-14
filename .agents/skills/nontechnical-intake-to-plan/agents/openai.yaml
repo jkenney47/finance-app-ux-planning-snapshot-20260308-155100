@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nontechnical Intake To Plan"
+  short_description: "Turn plain-language asks into build plans."
+  default_prompt: "Use $nontechnical-intake-to-plan to convert this request into milestones, assumptions, acceptance criteria, and a clear execution plan."

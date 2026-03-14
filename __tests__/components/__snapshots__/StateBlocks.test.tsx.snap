@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`State blocks EmptyHint matches snapshot in both themes 1`] = `
+<div
+  class="css-view-g5y9jx"
+  style="border-top-left-radius: 22px; border-top-right-radius: 22px; border-bottom-right-radius: 22px; border-bottom-left-radius: 22px; background-color: rgb(254, 252, 247); border-top-color: rgba(39,48,35,0.08); border-right-color: rgba(39,48,35,0.08); border-bottom-color: rgba(39,48,35,0.08); border-left-color: rgba(39,48,35,0.08);"
+>
+  <div
+    class="css-view-g5y9jx r-alignItems-1habvwh"
+  >
+    <div
+      class="css-text-146c3p1 r-fontSize-1gkfh8e r-fontWeight-b88u0q r-letterSpacing-ud0q2t r-textTransform-tsynxw"
+      dir="auto"
+      style="color: rgb(127, 140, 121);"
+    >
+      NEXT STEP
+    </div>
+    <div
+      class="css-text-146c3p1 r-fontWeight-b88u0q"
+      dir="auto"
+      style="color: rgb(39, 48, 35);"
+    >
+      Nothing yet
+    </div>
+    <div
+      class="css-text-146c3p1 r-lineHeight-rjixqe"
+      dir="auto"
+      style="color: rgb(94, 108, 88);"
+    >
+      Link an account to get started.
+    </div>
+    <div
+      class="css-view-g5y9jx"
+      style="margin-top: 12px;"
+    >
+      <button
+        class="css-view-g5y9jx r-cursor-1loqt21 r-touchAction-1otgn73"
+        role="button"
+        style="border-top-left-radius: 28px; border-top-right-radius: 28px; border-bottom-right-radius: 28px; border-bottom-left-radius: 28px; border-top-color: rgba(39,48,35,0.14); border-right-color: rgba(39,48,35,0.14); border-bottom-color: rgba(39,48,35,0.14); border-left-color: rgba(39,48,35,0.14); background-color: rgba(0, 0, 0, 0);"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="css-view-g5y9jx"
+        >
+          <div
+            class="css-text-146c3p1"
+            dir="auto"
+            style="color: rgb(39, 48, 35);"
+          >
+            Link
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`State blocks EmptyHint matches snapshot in both themes 2`] = `
+<div
+  class="css-view-g5y9jx"
+  style="border-top-left-radius: 22px; border-top-right-radius: 22px; border-bottom-right-radius: 22px; border-bottom-left-radius: 22px; background-color: rgb(24, 33, 28); border-top-color: rgba(213,226,210,0.08); border-right-color: rgba(213,226,210,0.08); border-bottom-color: rgba(213,226,210,0.08); border-left-color: rgba(213,226,210,0.08);"
+>
+  <div
+    class="css-view-g5y9jx r-alignItems-1habvwh"
+  >
+    <div
+      class="css-text-146c3p1 r-fontSize-1gkfh8e r-fontWeight-b88u0q r-letterSpacing-ud0q2t r-textTransform-tsynxw"
+      dir="auto"
+      style="color: rgb(136, 150, 134);"
+    >
+      NEXT STEP
+    </div>
+    <div
+      class="css-text-146c3p1 r-fontWeight-b88u0q"
+      dir="auto"
+      style="color: rgb(230, 236, 228);"
+    >
+      Nothing yet
+    </div>
+    <div
+      class="css-text-146c3p1 r-lineHeight-rjixqe"
+      dir="auto"
+      style="color: rgb(179, 192, 176);"
+    >
+      Link an account to get started.
+    </div>
+    <div
+      class="css-view-g5y9jx"
+      style="margin-top: 12px;"
+    >
+      <button
+        class="css-view-g5y9jx r-cursor-1loqt21 r-touchAction-1otgn73"
+        role="button"
+        style="border-top-left-radius: 28px; border-top-right-radius: 28px; border-bottom-right-radius: 28px; border-bottom-left-radius: 28px; border-top-color: rgba(213,226,210,0.16); border-right-color: rgba(213,226,210,0.16); border-bottom-color: rgba(213,226,210,0.16); border-left-color: rgba(213,226,210,0.16); background-color: rgba(0, 0, 0, 0);"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="css-view-g5y9jx"
+        >
+          <div
+            class="css-text-146c3p1"
+            dir="auto"
+            style="color: rgb(230, 236, 228);"
+          >
+            Link
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`State blocks ErrorNotice matches snapshot in both themes 1`] = `
+<div
+  class="css-view-g5y9jx"
+  data-testid="error-notice"
+  style="border-top-left-radius: 22px; border-top-right-radius: 22px; border-bottom-right-radius: 22px; border-bottom-left-radius: 22px; border-top-color: rgba(179,92,82,0.54); border-right-color: rgba(179,92,82,0.54); border-bottom-color: rgba(179,92,82,0.54); border-left-color: rgba(179,92,82,0.54); background-color: rgba(179, 92, 82, 0.08);"
+>
+  <div
+    class="css-view-g5y9jx r-alignItems-1habvwh"
+  >
+    <div
+      class="css-text-146c3p1 r-fontSize-1gkfh8e r-fontWeight-b88u0q r-letterSpacing-ud0q2t r-textTransform-tsynxw"
+      dir="auto"
+      style="color: rgb(179, 92, 82);"
+    >
+      ACTION NEEDED
+    </div>
+    <div
+      class="css-text-146c3p1 r-fontWeight-b88u0q"
+      dir="auto"
+      style="color: rgb(39, 48, 35);"
+    >
+      We hit a snag
+    </div>
+    <div
+      class="css-text-146c3p1 r-lineHeight-rjixqe"
+      dir="auto"
+      style="color: rgb(94, 108, 88);"
+    >
+      Something broke.
+    </div>
+    <div
+      class="css-view-g5y9jx"
+      style="margin-top: 12px;"
+    >
+      <button
+        class="css-view-g5y9jx r-cursor-1loqt21 r-touchAction-1otgn73"
+        role="button"
+        style="border-top-left-radius: 28px; border-top-right-radius: 28px; border-bottom-right-radius: 28px; border-bottom-left-radius: 28px; border-top-color: rgba(39,48,35,0.14); border-right-color: rgba(39,48,35,0.14); border-bottom-color: rgba(39,48,35,0.14); border-left-color: rgba(39,48,35,0.14); background-color: rgba(0, 0, 0, 0);"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="css-view-g5y9jx"
+        >
+          <div
+            class="css-text-146c3p1"
+            dir="auto"
+            style="color: rgb(39, 48, 35);"
+          >
+            Try again
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`State blocks ErrorNotice matches snapshot in both themes 2`] = `
+<div
+  class="css-view-g5y9jx"
+  data-testid="error-notice"
+  style="border-top-left-radius: 22px; border-top-right-radius: 22px; border-bottom-right-radius: 22px; border-bottom-left-radius: 22px; border-top-color: rgba(208,138,127,0.54); border-right-color: rgba(208,138,127,0.54); border-bottom-color: rgba(208,138,127,0.54); border-left-color: rgba(208,138,127,0.54); background-color: rgba(208, 138, 127, 0.08);"
+>
+  <div
+    class="css-view-g5y9jx r-alignItems-1habvwh"
+  >
+    <div
+      class="css-text-146c3p1 r-fontSize-1gkfh8e r-fontWeight-b88u0q r-letterSpacing-ud0q2t r-textTransform-tsynxw"
+      dir="auto"
+      style="color: rgb(208, 138, 127);"
+    >
+      ACTION NEEDED
+    </div>
+    <div
+      class="css-text-146c3p1 r-fontWeight-b88u0q"
+      dir="auto"
+      style="color: rgb(230, 236, 228);"
+    >
+      We hit a snag
+    </div>
+    <div
+      class="css-text-146c3p1 r-lineHeight-rjixqe"
+      dir="auto"
+      style="color: rgb(179, 192, 176);"
+    >
+      Something broke.
+    </div>
+    <div
+      class="css-view-g5y9jx"
+      style="margin-top: 12px;"
+    >
+      <button
+        class="css-view-g5y9jx r-cursor-1loqt21 r-touchAction-1otgn73"
+        role="button"
+        style="border-top-left-radius: 28px; border-top-right-radius: 28px; border-bottom-right-radius: 28px; border-bottom-left-radius: 28px; border-top-color: rgba(213,226,210,0.16); border-right-color: rgba(213,226,210,0.16); border-bottom-color: rgba(213,226,210,0.16); border-left-color: rgba(213,226,210,0.16); background-color: rgba(0, 0, 0, 0);"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="css-view-g5y9jx"
+        >
+          <div
+            class="css-text-146c3p1"
+            dir="auto"
+            style="color: rgb(230, 236, 228);"
+          >
+            Try again
+          </div>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`State blocks Skeleton matches snapshot 1`] = `
+<div
+  class="css-view-g5y9jx r-overflow-1udh08x"
+  style="width: 120px; height: 20px; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; background-color: rgb(242, 239, 230);"
+/>
+`;

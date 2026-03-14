@@ -1,0 +1,4 @@
+interface:
+  display_name: "UI Animate"
+  short_description: "Add purposeful motion and micro-interactions."
+  default_prompt: "Use $animate to add purposeful, accessible animations to a target interface while preserving clarity and performance."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Performance Optimize"
+  short_description: "Improve interface speed and smoothness."
+  default_prompt: "Use $optimize to diagnose and improve performance bottlenecks for a target interface area with measurable before/after impact."

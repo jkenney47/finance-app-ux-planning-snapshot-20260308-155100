@@ -1,0 +1,4 @@
+interface:
+  display_name: "Copy Clarify"
+  short_description: "Improve unclear UX copy and messaging."
+  default_prompt: "Use $clarify to rewrite confusing interface copy so users understand what happened and what to do next."

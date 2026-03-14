@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Colorize"
+  short_description: "Add strategic color and visual warmth."
+  default_prompt: "Use $colorize to introduce purposeful color into a target interface while preserving hierarchy, meaning, and accessibility."

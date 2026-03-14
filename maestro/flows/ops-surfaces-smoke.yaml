@@ -1,0 +1,205 @@
+appId: com.financepal.app
+---
+- launchApp
+- runFlow:
+    when:
+      visible:
+        text: This is the developer menu. It gives you access to useful tools in your development builds.
+    commands:
+      - tapOn:
+          text: Continue
+- runFlow:
+    when:
+      visible:
+        text: "Connected to:"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        text: "http://.*:8081"
+    commands:
+      - tapOn:
+          text: "http://.*:8081"
+- runFlow:
+    when:
+      visible:
+        id: agent-hub-screen-title
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: policy-ops-screen-title
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: ui-lab-screen
+    commands:
+      - openLink: financepal://accounts
+- runFlow:
+    when:
+      visible:
+        id: accounts-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: profile-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: insights-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: journey-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        id: goals-screen-title
+    commands:
+      - tapOn:
+          id: tab-home
+- runFlow:
+    when:
+      visible:
+        text: "Source code explorer"
+    commands:
+      - tapOn:
+          text: "Go home"
+- runFlow:
+    when:
+      visible:
+        id: onboarding-screen-title
+    commands:
+      - tapOn:
+          id: onboarding-finish-partial
+- assertVisible:
+    id: dashboard-screen-title
+
+- tapOn:
+    id: tab-insights
+- assertVisible:
+    id: insights-screen-title
+- scrollUntilVisible:
+    element:
+      id: insights-ask-button
+    direction: DOWN
+- tapOn:
+    id: insights-ask-button
+- assertVisible:
+    id: ask-sheet
+- tapOn:
+    text: Close
+
+- openLink: financepal://agent-hub
+- runFlow:
+    when:
+      visible:
+        text: "Open in .*FinancePal.*"
+    commands:
+      - tapOn:
+          text: Open
+- assertVisible:
+    id: agent-hub-screen-title
+- assertVisible:
+    id: agent-hub-providers-section
+- assertVisible:
+    id: agent-hub-request-section
+- scrollUntilVisible:
+    element:
+      id: agent-hub-provider-details-section
+    direction: DOWN
+- assertVisible:
+    id: agent-hub-provider-details-section
+- scrollUntilVisible:
+    element:
+      id: agent-hub-recent-invocations-section
+    direction: DOWN
+- assertVisible:
+    id: agent-hub-recent-invocations-section
+- scrollUntilVisible:
+    element:
+      id: agent-hub-recent-workflows-section
+    direction: DOWN
+- assertVisible:
+    id: agent-hub-recent-workflows-section
+
+- openLink: financepal://policy-ops
+- runFlow:
+    when:
+      visible:
+        text: "Open in .*FinancePal.*"
+    commands:
+      - tapOn:
+          text: Open
+- assertVisible:
+    id: policy-ops-screen-title
+- assertVisible:
+    id: policy-ops-operations-health-section
+- assertVisible:
+    text: Refresh all panels
+- scrollUntilVisible:
+    element:
+      id: policy-ops-current-policy-packs-section
+    direction: DOWN
+- assertVisible:
+    id: policy-ops-current-policy-packs-section
+- scrollUntilVisible:
+    element:
+      id: policy-ops-refresh-checks-section
+    direction: DOWN
+- assertVisible:
+    id: policy-ops-refresh-checks-section
+- scrollUntilVisible:
+    element:
+      id: policy-ops-governance-actions-section
+    direction: DOWN
+- assertVisible:
+    id: policy-ops-governance-actions-section
+- scrollUntilVisible:
+    element:
+      id: policy-ops-admins-section
+    direction: DOWN
+- assertVisible:
+    id: policy-ops-admins-section
+- scrollUntilVisible:
+    element:
+      id: policy-ops-audit-log-section
+    direction: DOWN
+- assertVisible:
+    id: policy-ops-audit-log-section
+
+- openLink: financepal://ui-lab
+- runFlow:
+    when:
+      visible:
+        text: "Open in .*FinancePal.*"
+    commands:
+      - tapOn:
+          text: Open
+- assertVisible:
+    id: ui-lab-screen
+- assertVisible:
+    id: ui-lab-primary-button
+- scrollUntilVisible:
+    element:
+      id: ui-lab-empty-hint-action
+    direction: DOWN
+- assertVisible:
+    id: ui-lab-empty-hint-action
