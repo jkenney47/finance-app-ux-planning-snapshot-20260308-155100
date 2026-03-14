@@ -2,6 +2,10 @@
 
 This document summarizes the private product plan in a public-safe, nontechnical form.
 
+Freshness note:
+- this packet reflects the current private app state as of March 14, 2026
+- the latest meaningful user-facing changes captured here are the new onboarding-to-roadmap flow and the shared roadmap-core model across the main planning screens
+
 ## Why This Exists
 
 The full private repo has a detailed execution plan. For external UX planning, the important part is not the implementation detail. It is understanding:

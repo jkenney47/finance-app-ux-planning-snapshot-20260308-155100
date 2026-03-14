@@ -7,6 +7,11 @@ Purpose:
 - preserve enough nontechnical product context to reason about flows precisely
 - avoid exposing secrets, backend implementation, internal operations, or automation details
 
+Snapshot freshness:
+- reflects private-repo development through March 14, 2026
+- includes the spec-driven onboarding roadmap flow
+- includes roadmap-payload adoption across Home, Roadmap, and Step Detail
+
 What this snapshot includes:
 - screenshot evidence for the main user-facing flows
 - sanitized screen summaries for the main user-facing flows
